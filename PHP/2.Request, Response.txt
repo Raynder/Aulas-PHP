@@ -1,0 +1,7 @@
+
+Request e Response = ida e vinda do cliente ao servidor.
+
+Request= pedido feito;
+Response = Resposta sobre o pedido;
+Cliente = usuario;
+Servidor = O que serve, ao usuario;

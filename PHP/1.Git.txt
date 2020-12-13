@@ -1,0 +1,4 @@
+
+Git = Controle de Versão;
+Comando para clonar e criar uma pasta com um nome diferente
+Git clone https....com [nome da pasta sem as chaves]

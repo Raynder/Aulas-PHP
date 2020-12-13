@@ -1,0 +1,30 @@
+
+"" ou ''
+{
+Ao usar aspas duplas "" o PHP obervara se tem alguma variavel dentro, sem que precise concatena-la;
+}
+
+strtoupper($argumento) = deixar tudo maiusculo(pode-se usar junto com echo);
+strtolower($argumento) = deixar tudo minusculo;
+
+para melhor entendimento
+{
+str = string = frase,
+to = para,
+upper ou lower = maior ou menor;
+}
+
+ucwords = Primeira letra maiuscula de cada palavra;
+ucfirst = Primeira letra da frase;
+
+////////////////////////////////////////////////////////
+
+str_replace("quem trocar", "por quem", "onde"); reescrever valores de variaveis,
+para seu uso e preciso salvar o resultado da função em uma variavel;
+
+strpos(alvo, onde) = vai pegar a posição de onde esta a string mecionada no alvo;
+
+substr(alvo, iniciar, finalizar) corta a partir do inicio ate o final,
+	nescessario salvar em variavel;
+
+strlen($argumento) = quantidades de letras em uma frase;

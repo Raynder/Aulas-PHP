@@ -1,0 +1,8 @@
+Escoplo e um ambiente fechado
+
+ou seja se tiver uma variavel no ambiente do php e voce cria uma função
+que sera um outro ambiente, a variavel declarada fora não podera ser usa
+da, a não ser que você a declare como global dentro do escoplo.
+
+Porem o GET e o POSt por serem super globais
+funcionaram em qualquer escoplo.

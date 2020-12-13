@@ -1,0 +1,6 @@
+
+?? = se não então( e como se estivesse dando false em um if e indo para o else);
+
+spaceship = operador que verifica se a variavel é menor, igual ou maior que outra;
+
+

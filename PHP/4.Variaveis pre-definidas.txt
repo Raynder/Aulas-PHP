@@ -1,0 +1,16 @@
+? = divisão do que e url e oque e dados passados para o PHP;
+$_GET ou $_POST = Variaveis Super GLobais;
+
+Para mudar o tipo da variavel podemos mencionar o tipo da variaveil antes de menciona-la;
+(aqui)$_GET[];
+
+& acrescentar mais variaveis;
+
+URL = Uniform resorce location , Conjunto;
+URI = Uniform resorce Idendifire , Pedaço;
+
+//Pre-definidas ou Array superGlobais
+
+$_SERVER["REMOTE_ADDR"] = Endereço IP do servidor do cliente;
+$_SERVER["SCRIPT_NAME"] = Arquivo que cliente esta acessando, podendo saber oque foi acessado.
+

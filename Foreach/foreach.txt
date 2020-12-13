@@ -1,0 +1,7 @@
+
+foreach($alvo as $recebendo) = esse for faz um laço para cada valor do alvo e cada vez qu
+	passa ele armazena dentro da variavel para usar dentro do escoplo;
+
+podemos tambem fazer um para pegar todos os dados de um formulario sem especificalos
+e adicionar-mos em um variavel o seu nome($key) e o seu valor($value);
+

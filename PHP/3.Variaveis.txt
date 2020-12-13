@@ -1,0 +1,13 @@
+unset() = Destruir;
+isset() = Verificar se existe;
+
+. = concatenação;
+exit() = Parar execução do codigo;
+
+/////////////////////////////////////////
+Tipos de Dados
+/////////////////////////////////////////
+
+array() = array comum;
+new DataTime() = objeto;
+NULL = variavel absolutamente sem nada;
