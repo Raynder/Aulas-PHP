@@ -13,12 +13,12 @@
 
             foreach($parameters as $key => $value){
 
-                $this->setParam($key, $value);
+                $this->setParam($statmant, $key, $value);
 
             }                
         }
 
-        private function setParam($statment, $key, $value){
+        private function setParam($statmant, $key, $value){
 
             $statmant->bindParam($key, $value);
 
