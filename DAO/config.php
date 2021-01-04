@@ -1,7 +1,7 @@
 <?php
 
     spl_autoload_register(function($class){
-        $file = $class.".php";
+        $file = "class".DIRECTORY_SEPARATOR.$class.".php";
 
         if(file_exists($file)){
             require_once($file);
