@@ -41,6 +41,27 @@ class Usuario {
     public function setDtcadastro($dt){
         $this->dtcadastro = $dt;
     }
+    //FUNÇÃO QUE FAZ UM INSERT E RETORNA OS VALORES QUE FORAM INSERIDOS
+    //a diferença desta é que ela pode ser chamada na declaração do objeto
+
+    public function __construct($login = "", $password = ""){
+        if($login != "" && $password != ""){
+            $this->setDeslogin($login);
+            $this->setDessenha($password);
+
+            $this->insert();
+        }
+        //AREA CRIADA POR MIN PARA QUANDO NÃO FOR PASSADO NADA COMO PARAMETRO NO OBJETO, E FOR SOLICITADO QUE IMPRIMA ALGO.
+        else{
+            $data = array(
+                "idusuario"=>"nenhum",
+                "deslogin"=>"nenhum",
+                "dessenha"=>"nenhum",
+                "dtcadastro"=>$aux = (new DateTime())->format("d/m/Y H:i:s")
+            );
+            $this->setData($data);
+        }
+    }
 
     //Função que puxa todos os valores por um ID
     public function loadById($id){
@@ -49,13 +70,7 @@ class Usuario {
         $resultado = $sql->select("SELECT * FROM tb_usuarios WHERE idusuario = :ID", array(":ID"=>$id));
 
         if(isset($resultado)){
-            $row = $resultado[0];
-
-            $this->setIdusuario($row['idusuario']);
-            $this->setDeslogin($row['deslogin']);
-            $this->setDessenha($row['dessenha']);
-            $this->setDtcadastro(new DateTime($row['dtcadastro']));
-
+            setData($resultado[0]);
         }
     }
     //Função retorna todos os valores do banco
@@ -83,7 +98,15 @@ class Usuario {
             "dtcadastro" => $this->getDtcadastro()->format("d/m/Y H:i:s")
         ));
     }
+    //FUNÇÃO QUE SETA TODAS AS VARIAVEIS DE UMA VEZ
 
+    public function setData($data){
+        $this->setIdusuario($data['idusuario']);
+        $this->setDeslogin($data['deslogin']);
+        $this->setDessenha($data['dessenha']);
+        $this->setDtcadastro(new DateTime($data['dtcadastro']));
+    }
+    //FUNÇÃO QUE FAZ LOGIN SE OS DADOS ESTIVEREM CORRETOS
     
     public function login($login, $pass){
         $sql = new SQL;
@@ -91,17 +114,24 @@ class Usuario {
         $resultado = $sql->select("SELECT * FROM tb_usuarios WHERE deslogin = :DESLOGIN AND dessenha = :DESSENHA", array(":DESLOGIN"=>$login,":DESSENHA"=>$pass));
 
         if(count($resultado) > 0){
-            $row = $resultado[0];
-
-            $this->setIdusuario($row['idusuario']);
-            $this->setDeslogin($row['deslogin']);
-            $this->setDessenha($row['dessenha']);
-            $this->setDtcadastro(new DateTime($row['dtcadastro']));
-
+            setData($resultado[0]);
         }
         else{
             throw new Exception("Login e/ou Senha invalidos.");
         }
+    }
+    //FUNÇÃO QUE FAZ UM INSERT E RETORNA OS VALORES QUE FORAM INSERIDOS
+    //para usa-la e necessario que tenha predefinido os atributos de usuario e senha
+
+    public function insert(){
+        $sql = new Sql;
+
+        $result = $sql->select("CALL sp_usuarios_insert(:DESLOGIN, :DESSENHA)", array(":DESLOGIN"=>$this->getDeslogin(), ":DESSENHA"=>$this->getDessenha()));
+
+        if(count($result) > 0){
+            $this->setData($result[0]);
+        }
+
     }
 
 }

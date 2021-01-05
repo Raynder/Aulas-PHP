@@ -18,6 +18,12 @@
     echo json_encode($busca);
     */
 
+    /*FUNÇÃO QUE INSERE USUARIOS NA TABELA
     $user = new Usuario;
     $user->login("joe", "12345678");
+    echo $user;
+    */
+
+    $user = new Usuario();
+
     echo $user;
