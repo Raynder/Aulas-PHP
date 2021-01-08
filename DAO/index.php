@@ -23,7 +23,10 @@
     $user->login("joe", "12345678");
     echo $user;
     */
+    
+    /*FUNÇÃO QUE ALTERA O USUARIO E SENHA DO LOGIN CARREGADO
+    $user->loadById(10);
+    $user->update("Kelly","novasenha");
+    */
 
     $user = new Usuario();
-
-    echo $user;

@@ -70,7 +70,7 @@ class Usuario {
         $resultado = $sql->select("SELECT * FROM tb_usuarios WHERE idusuario = :ID", array(":ID"=>$id));
 
         if(isset($resultado)){
-            setData($resultado[0]);
+            $this->setData($resultado[0]);
         }
     }
     //Função retorna todos os valores do banco
@@ -132,6 +132,18 @@ class Usuario {
             $this->setData($result[0]);
         }
 
+    }
+    public function update($login, $senha){
+        $sql = new Sql;
+
+        $this->setDeslogin($login);
+        $this->setDessenha($senha);
+
+        $sql->query("UPDATE tb_usuarios SET deslogin = :LOGIN, dessenha = :PASS WHERE idusuario = :ID",array(
+            ":LOGIN"=>$this->getDeslogin(),
+            ":PASS"=>$this->getDessenha(),
+            ":ID"=>$this->getIdusuario()
+        ));
     }
 
 }
